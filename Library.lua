@@ -4618,16 +4618,17 @@ function Library:Notify(...)
     local Data = {}
     local Info = select(1, ...)
 
-    if typeof(Info) == "table" then
-        Data.Title = tostring(Info.Title)
-        Data.Description = tostring(Info.Description)
-        Data.Time = Info.Time or 5
-        Data.SoundId = Info.SoundId
-    else
-        Data.Description = tostring(Info)
-        Data.Time = select(2, ...) or 5
-        Data.SoundId = select(3, ...)
-    end
+	if typeof(Info) == "table" then
+		Data.Title = Info.Title and tostring(Info.Title) or ""
+		Data.Description = tostring(Info.Description)
+		Data.Time = Info.Time or 5
+		Data.SoundId = Info.SoundId
+	else
+        Data.Title = ""
+		Data.Description = tostring(Info)
+		Data.Time = select(2, ...) or 5
+		Data.SoundId = select(3, ...)
+	end
     
     local Side = string.lower(Library.NotifySide);
     local XSize, YSize = Library:GetTextBounds(Data.Description, Library.Font, 14);

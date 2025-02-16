@@ -1244,8 +1244,8 @@ do
             HueBox.Text = '#' .. ColorPicker.Value:ToHex()
             RgbBox.Text = table.concat({ math.floor(ColorPicker.Value.R * 255), math.floor(ColorPicker.Value.G * 255), math.floor(ColorPicker.Value.B * 255) }, ', ')
 
-            Library:SafeCallback(ColorPicker.Callback, ColorPicker.Value);
-            Library:SafeCallback(ColorPicker.Changed, ColorPicker.Value);
+            Library:SafeCallback(ColorPicker.Callback, ColorPicker.Value, ColorPicker.Transparency);
+            Library:SafeCallback(ColorPicker.Changed, ColorPicker.Value, ColorPicker.Transparency);
         end;
 
         function ColorPicker:OnChanged(Func)

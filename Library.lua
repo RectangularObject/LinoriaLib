@@ -2205,7 +2205,6 @@ do
                                 Selected = Try;
 
                                 if Selected then
-                                    warn(Value, StringValue, typeof(Value), typeof(StringValue))
                                     Dropdown.Value[Value] = true;
                                 else
                                     Dropdown.Value[Value] = nil;
@@ -4062,7 +4061,6 @@ do
                                 Selected = Try;
 
                                 if Selected then
-                                    warn(Value, StringValue, typeof(Value), typeof(StringValue))
                                     Dropdown.Value[Value] = true;
                                 else
                                     Dropdown.Value[Value] = nil;

@@ -1248,8 +1248,8 @@ do
             HueBox.Text = '#' .. ColorPicker.Value:ToHex()
             RgbBox.Text = table.concat({ math.floor(ColorPicker.Value.R * 255), math.floor(ColorPicker.Value.G * 255), math.floor(ColorPicker.Value.B * 255) }, ', ')
 
-            Library:SafeCallback(ColorPicker.Callback, ColorPicker.Value);
-            Library:SafeCallback(ColorPicker.Changed, ColorPicker.Value);
+            Library:SafeCallback(ColorPicker.Changed, ColorPicker.Value, ColorPicker.Transparency);
+            Library:SafeCallback(ColorPicker.Callback, ColorPicker.Value, ColorPicker.Transparency);
         end;
 
         function ColorPicker:OnChanged(Func)
@@ -1739,8 +1739,8 @@ do
                 ParentObj:SetValue(not ParentObj.Value)
             end
 
-            Library:SafeCallback(KeyPicker.Callback, KeyPicker.Toggled)
             Library:SafeCallback(KeyPicker.Clicked, KeyPicker.Toggled)
+            Library:SafeCallback(KeyPicker.Callback, KeyPicker.Toggled)
         end
 
         function KeyPicker:SetModePickerVisibility(bool)
@@ -1795,8 +1795,8 @@ do
                     DisplayLabel.Text = Key;
                     KeyPicker.Value = Key;
 
-                    Library:SafeCallback(KeyPicker.ChangedCallback, Input.KeyCode or Input.UserInputType)
                     Library:SafeCallback(KeyPicker.Changed, Input.KeyCode or Input.UserInputType)
+                    Library:SafeCallback(KeyPicker.ChangedCallback, Input.KeyCode or Input.UserInputType)
 
                     Library:AttemptSave();
 
@@ -2232,8 +2232,8 @@ do
                             Dropdown:Display();
                             
                             Library:UpdateDependencyBoxes();
-                            Library:SafeCallback(Dropdown.Callback, Dropdown.Value);
                             Library:SafeCallback(Dropdown.Changed, Dropdown.Value);
+                            Library:SafeCallback(Dropdown.Callback, Dropdown.Value);
 
                             Library:AttemptSave();
                         end;
@@ -2393,8 +2393,8 @@ do
             Dropdown:BuildDropdownList();
 
             if not Dropdown.Disabled then
-                Library:SafeCallback(Dropdown.Callback, Dropdown.Value);
                 Library:SafeCallback(Dropdown.Changed, Dropdown.Value);
+                Library:SafeCallback(Dropdown.Callback, Dropdown.Value);
             end;
         end;
 
@@ -3051,8 +3051,8 @@ do
             Box.Text = Text;
 
             if not Textbox.Disabled then
-                Library:SafeCallback(Textbox.Callback, Textbox.Value);
                 Library:SafeCallback(Textbox.Changed, Textbox.Value);
+                Library:SafeCallback(Textbox.Callback, Textbox.Value);
             end;
         end;
 
@@ -3287,8 +3287,8 @@ do
             end
 
             if not Toggle.Disabled then
-                Library:SafeCallback(Toggle.Callback, Toggle.Value);
                 Library:SafeCallback(Toggle.Changed, Toggle.Value);
+                Library:SafeCallback(Toggle.Callback, Toggle.Value);
             end;
 
             Library:UpdateDependencyBoxes();
@@ -3570,8 +3570,8 @@ do
             Slider:Display();
 
             if not Slider.Disabled then
-                Library:SafeCallback(Slider.Callback, Slider.Value);
                 Library:SafeCallback(Slider.Changed, Slider.Value);
+                Library:SafeCallback(Slider.Callback, Slider.Value);
             end;
         end;
 
@@ -3660,8 +3660,8 @@ do
                     Slider:Display();
 
                     if nValue ~= OldValue then
-                        Library:SafeCallback(Slider.Callback, Slider.Value);
                         Library:SafeCallback(Slider.Changed, Slider.Value);
+                        Library:SafeCallback(Slider.Callback, Slider.Value);
                     end;
 
                     RenderStepped:Wait();
@@ -4089,8 +4089,8 @@ do
                             Dropdown:Display();
                             
                             Library:UpdateDependencyBoxes();
-                            Library:SafeCallback(Dropdown.Callback, Dropdown.Value);
                             Library:SafeCallback(Dropdown.Changed, Dropdown.Value);
+                            Library:SafeCallback(Dropdown.Callback, Dropdown.Value);
 
                             Library:AttemptSave();
                         end;
@@ -4253,8 +4253,8 @@ do
             Dropdown:BuildDropdownList();
 
             if not Dropdown.Disabled then
-                Library:SafeCallback(Dropdown.Callback, Dropdown.Value);
                 Library:SafeCallback(Dropdown.Changed, Dropdown.Value);
+                Library:SafeCallback(Dropdown.Callback, Dropdown.Value);
             end;
         end;
 
